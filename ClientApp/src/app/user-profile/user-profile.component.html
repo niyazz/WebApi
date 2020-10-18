@@ -1,0 +1,35 @@
+<div style="height: 100%; padding: 25px 20px 50px 20px;">
+    <h2 style="margin-bottom: 25px;">Профиль и статистика</h2>
+   
+<div class="user-profile">
+    <div class="user-info">
+        <div class="text-info">
+            <h2>Данные Пользователя</h2>
+            <div class="details-info">
+                <div class="part-1">
+                    <h3>Фамилия: <span>{{userDetails.lastName}}</span></h3>             
+                    <h3>Полное имя: <span>{{userDetails.firstName}}</span></h3>                          
+                </div>
+                <div class="part-2">
+                    <h3>Роль: <span>сотрудник</span></h3>           
+                    <h3>Электронная почта:</h3>
+                    <h3 style="font-size: 26px;">{{userDetails.email}}</h3>
+                    <h3>Логин: <span>{{userDetails.userName}}</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="image-info">
+            <img src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+              alt="User picture">
+            <button class="btn btn-primary" (click) = "loadImage()">Загрузить фото</button>
+        </div>
+    </div>
+
+    <div class="user-statistic">
+        <app-statistic-card [icon] = "faCogs" [number] = "todoAmount" [text] = "todoTitle"></app-statistic-card>
+        <app-statistic-card [icon] = "faBusinessTime" [number] = "todoTime" [text] = "timeTitle"></app-statistic-card>
+        <app-statistic-card [icon] = "faUtensils" [number] = "lunchTime" [text] = "lunchTimeTitle"></app-statistic-card>
+        <app-statistic-card [icon] = "faPercent" [number] = "percentNum" [text] = "percentTitle"></app-statistic-card>
+    </div>
+</div>
+</div>

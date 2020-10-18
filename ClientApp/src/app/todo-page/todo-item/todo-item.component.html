@@ -1,0 +1,30 @@
+<div class = "todoItem">
+    <div class = "todo-header">
+    <h3>
+    {{todo.title}}
+    </h3>
+    <button (click) = "removeTodo()">
+        <fa-icon [icon]="faTrash" ></fa-icon>
+    </button>
+    </div>
+    <div class = "todo-content">
+        {{todo.description}}
+    </div>
+    <div class = "todo-footer">
+        <div class="footer-borded">
+        <div style="display: flex; flex-direction: column; width: 70%;">
+            <span>Автор: {{todo.authorFullName}}</span>
+            <span>Исполнитель: {{todo.executerFullName}}</span>
+            <span *ngIf = "todo.priority == 0" class="badge badge-primary" style="width:50px">низкий</span>
+            <span *ngIf = "todo.priority  == 1" class="badge badge-warning" style="width:50px">средний</span>
+            <span *ngIf = "todo.priority  == 2" class="badge badge-danger" style="width:50px">высокий</span>
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 25px;">
+            <span *ngIf = "todo.isDone == true"><fa-icon [icon] = "faCheckCircle" style="color: forestgreen;"></fa-icon> Выполнена</span>
+            <span *ngIf = "todo.isDone == false"><fa-icon [icon] = "faTimesCircle" style="color:darkorange"></fa-icon> В работе</span>        
+            <span style="align-self: flex-end;">{{todo.created}}</span>
+        </div>
+      
+    </div>
+    </div>
+</div>

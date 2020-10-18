@@ -1,0 +1,62 @@
+<div  class="day-content">
+        <app-tempo-record *ngFor = "let tempo of tempoListic" [numbe]="dayNumber" [tempo] = "tempo"></app-tempo-record>
+    <span class="btn-span">
+        <button class="btn btn-primary md-btn" [ngClass] = "tempoListic.length == 0 ? 'btn-visible' : ''" (click) ="OpenModal()" >
+            <span><fa-icon [icon] = "faPlus"></fa-icon></span>
+        </button>
+    </span>
+</div>
+
+<div>
+    <div *ngIf = "opened" class="modal-shadow">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle" style="color: cornsilk; ">Списать время</h4>
+          <button type="button" class="close" (click) ="OpenModal()">
+            <span aria-hidden="true" >&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="tempoForm">
+                <div class="form-group">
+                  <label for="selectTodo">Решаемая задача</label>        
+                  <select formControlName="todoId" class="form-control mb-1" id="selectTodo">
+                    <option *ngFor = "let todo of todoList; let i = index" value="{{todo.id}}">{{todo.title}}</option>
+                  </select>                
+                </div>
+                <div style="margin-bottom: 18px;">
+                    <label for="selectTodo">Затраченное время</label>  
+                    <div class="form-row">        
+                        <div class="col">
+                          <input formControlName="execHours" (keydown)="onlyNumbers($event)" type="text" class="form-control" placeholder="Часы">
+                        </div>
+                        <div class="col">
+                          <input formControlName="execMinutes" (keydown)="onlyNumbers($event)" type="text" class="form-control" placeholder="Минуты">
+                        </div>
+                    </div>  
+                </div>
+                <div style="margin-bottom: 18px;">
+                    <label for="selectTodo">Обеденное время</label>  
+                    <div class="form-row">        
+                        <div class="col">
+                          <input formControlName="lunchHours" (keydown)="onlyNumbers($event)" type="text" class="form-control" placeholder="Часы">
+                        </div>
+                        <div class="col">
+                          <input formControlName="lunchMinutes" (keydown)="onlyNumbers($event)" type="text" class="form-control" placeholder="Минуты">
+                        </div>
+                    </div>  
+                </div>  
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox" >
+                        <input formControlName="todoIsDone" type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                        <label class="custom-control-label" for="customCheck">Задача решена</label>
+                    </div>    
+                </div>        
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click) = "addTempo()" class="btn btn-success">Сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>

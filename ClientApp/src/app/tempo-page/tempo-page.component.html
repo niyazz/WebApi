@@ -1,0 +1,27 @@
+<div style="height: 100%; width: 100%; padding: 25px 20px 50px 20px;">
+    <div style="display: flex; justify-content: space-between;">
+        <h2 style="margin-bottom: 25px;">Списание времени <br> <span style="font-size: 18px; margin-left: 10px;">{{weekTime}}h / 40h</span></h2>
+   
+        <div class="arrows">
+            <button (click) = "PrevWeek()" class="btn btn-primary" style="background-color: #0656ac;">
+                <fa-icon [icon] = "faArrowCircleLeft" style="font-size: 24px;"></fa-icon>
+            </button>
+            <button (click) = "NextWeek()" class="btn btn-primary" style="background-color: #0656ac; margin-left: 20px;">
+                <fa-icon [icon] = "faArrowCircleRight" style="font-size: 24px;"></fa-icon>
+            </button>
+        </div>
+    </div>   
+    <div id = "tempoPage">          
+        <div class="header">
+            <div class="day-container" *ngFor ="let day of days">
+                <app-tempo-day-header [parentSubject]="parentSubject" [header] = "day" [tempoListic] = "tempoList"></app-tempo-day-header>
+            </div>
+           
+        </div>
+        <div class="content hidden-scroll">
+            <div  class="day-container" *ngFor ="let day of days">
+                <app-tempo-day [daynum] = "day.dayNum" [weeknum]="weekNumber" [tempoListic] = "tempoList"></app-tempo-day>
+            </div>               
+        </div>  
+    </div>  
+</div>

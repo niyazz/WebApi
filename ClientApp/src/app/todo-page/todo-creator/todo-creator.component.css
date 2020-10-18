@@ -1,0 +1,33 @@
+
+  .todo-header{
+    border-radius: 5px 5px 0px 0px;
+    max-height: 60px;
+    padding: 15px;
+    margin-bottom:15px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    color: white;
+  }
+  .todo-content{
+    padding: 0px 20px 0px 20px;
+    margin-bottom: 20px;
+  }
+  .todo-footer{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    padding: 0px 20px 20px 20px;  
+  }
+  .todo-footer span{  
+    width:100%;
+    padding: 5px 0px 5px 0px; 
+    border-top: 1px solid rgba(0,98,204);
+  }
+  .todoDescr{
+    background-color:white;
+    border-radius: 5px 5px 0px 0px;
+    width: 100%;
+    max-height: 570px;
+    height: 100%;
+    box-shadow: 0px 0px 10px rgba(0,98,204,0.5);
+  }

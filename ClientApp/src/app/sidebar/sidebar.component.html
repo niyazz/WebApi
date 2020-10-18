@@ -1,0 +1,73 @@
+
+<div class="chiller-theme" style=" display: grid; grid-template-columns: 1fr 4fr; height: 100%;">
+    <nav id="sidebar" class="sidebar-wrapper"  style="height: 100vh;">
+        <div class="sidebar-content">
+            <div class="sidebar-brand">
+          <a href="#">Курсовая работа</a>
+            </div>
+            <div class="sidebar-header">
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+              alt="User picture">
+          </div>
+          <div class="user-info" >
+            <span class="user-name">
+             {{userFullName}}
+            </span>
+            <span class="user-role">Сотрудник</span>
+            <span class="user-status">
+                <fa-icon [icon]="faCircle" style="color: limegreen;"></fa-icon>
+              <span>Online</span>
+            </span>
+          </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="header-menu">
+              <span>Главное меню</span>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+              <a href="#" [routerLink]="['/profile']">
+                <fa-icon [icon]="faTachometerAlt"></fa-icon>
+                <span>Профиль и статистика</span>
+              </a>
+                    </li>
+           
+                    <li class="sidebar-dropdown">
+              <a href="#" [routerLink]="['/todopage']">
+                <fa-icon [icon]="faTasks"></fa-icon>
+                <span>Назначенные задачи</span>
+              </a>
+                    </li>
+
+                    <li class="sidebar-dropdown">
+              <a href="#"  [routerLink]="['/tempopage']">
+                <fa-icon [icon]="faChartLine"></fa-icon>
+                <span>Списание времени</span>
+              </a>
+                    </li>
+
+                    <li class="sidebar-dropdown"  style=" border-bottom: 1px solid rgb(6, 76, 166);" (click) = "sayPhrase()">
+              <a>
+                <fa-icon [icon]="faGlobe"></fa-icon>
+                <span>Коллективный чат</span>
+              </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      <div class="sidebar-footer">
+        <a href="#" (click)="onLogout()">
+          Выход
+        </a>
+      </div>
+    </nav>
+
+    <div style="background-color: #bcdaf5">
+        <router-outlet></router-outlet>
+    </div>
+  
+ 
+</div>
+

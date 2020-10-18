@@ -1,0 +1,16 @@
+<div *ngIf ="tempo.dayNumber == numbe" class="tempo-record">
+    <div class="record-header">
+        <span (click) = "removeTempo()" style="align-self: flex-end; padding:0; margin: 0; margin-right: 3px;">
+            <fa-icon [icon] = "faBackspace"></fa-icon>
+        </span>
+        {{tempo.todoTitle}}
+    </div>
+    <div class="record-content">
+       {{tempo.todoDescription}}
+    </div>
+    <div class="record-footer">
+        <span *ngIf = "tempo.todoIsDone"  class="badge badge-success" style="line-height: 2; padding: 0px 4px;"> Выполнена</span>
+        <span *ngIf = "!tempo.todoIsDone"  class="badge badge-warning" style="line-height: 2; padding: 0px 4px;">В работе</span>
+        <span>{{timeConvert(tempo.time)}}</span>
+    </div>
+</div>

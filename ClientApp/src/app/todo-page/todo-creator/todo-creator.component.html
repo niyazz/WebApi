@@ -1,0 +1,41 @@
+<div class="todoDescr">
+    <div class = "todo-header">
+      <h3>
+        Создать новую задачу
+      </h3>
+    </div>
+    <div class = "todo-content">
+      <form [formGroup]="todoForm">
+        <div class="form-group">
+          <label for="inputTitle">Заголовок</label>
+          <input formControlName="title" type="text" autocomplete="new-password" required class="form-control" id="inputTitle"  placeholder="Что нужно сделать?">
+          <!--<label class = "text-danger" *ngIf = "IsValid('name')">{{this.TranslateError(this.name.errors, 'name')}}</label>-->
+        </div>
+        <div class="form-group">
+          <label for="inputDescription">Описание</label>
+          <textarea formControlName="description" class="form-control" id="inputDescription" rows="3"  placeholder="Детали задачи" style="resize: none;"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="selectPriority" class="mr-2">Приоритет</label>
+          <span *ngIf = "todoForm.value.priority == 0" class="badge badge-primary">низкий</span>
+          <span *ngIf = "todoForm.value.priority == 1" class="badge badge-warning">средний</span>
+          <span *ngIf = "todoForm.value.priority == 2" class="badge badge-danger">высокий</span>
+          <select formControlName="priority" class="form-control" id="selectPriority">
+            <option value="0">Низкий</option>
+            <option value="1">Средний</option>
+            <option value="2">Высокий</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="selectExecuter">Исполнитель</label>        
+          <select formControlName="executer" class="form-control mb-1" id="selectExecuter">
+            <option *ngFor = "let worker of workerList; let i = index" value="{{worker.workerNickname}}">{{worker.workerFullName}}</option>
+          </select>
+          <a href="#" (click) = "setCurrentUser($event)" style="font-size: 14px;">Назначить меня</a>
+        </div>
+      </form>
+    </div>
+    <div class = "todo-footer">
+      <button type="button" (click) = "addTodo()" class="btn btn-success">Добавить</button>
+    </div>
+</div>

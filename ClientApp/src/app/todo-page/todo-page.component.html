@@ -1,0 +1,39 @@
+<div style="height: 100%; padding: 25px 20px 50px 20px;">
+    <h2 style="margin-bottom: 25px;">Назначенные задачи</h2>
+   
+    <div id = "todoPage">
+      <div class="filter-container">
+        <div class="filters">
+          <select class="form-control" placeholder = "Статус выполнения" [(ngModel)] = "filter.status"  (ngModelChange)="changeTodoList()"> 
+            <option value="">Все статусы</option>
+            <option value="Выполнена">Выполнена</option>
+            <option value="В работе">В работе</option>
+          </select>        
+        </div>
+        <div class="filters">
+          <select class="form-control" [(ngModel)] = "filter.executerNickName"  (ngModelChange)="changeTodoList()">
+            <option value="">Все сотрудники</option>
+            <option *ngFor = "let worker of workerList; let i = index" value="{{worker.workerNickname}}">{{worker.workerFullName}}</option>
+          </select>      
+        </div>
+        <div class="filters">
+          <select class="form-control" placeholder = "Приоритет" [(ngModel)] = "filter.priority" (ngModelChange)="changeTodoList()">
+            <option value="-1">Все приоритеты</option>
+            <option value="0">Низкий</option>
+            <option value="1">Средний</option>
+            <option value="2">Высокий</option>
+          </select>      
+        </div>
+      </div>
+      
+
+      <div style=" display: flex;justify-content: space-around; width: 100%;">
+        <div id = "todoList" class="hidden-scroll">           
+          <app-todo-item (removedTodo)="removeFromTodoList($event)" *ngFor ="let todo of todoList" [todo] = "todo"></app-todo-item>   
+        </div>
+        <div style="width: 42%;">
+          <app-todo-creator  (addedTodo)="loadAll()"></app-todo-creator>
+        </div>
+      </div>     
+    </div>
+  </div><!--style="overflow-y: scroll; height:90vh; overflow: hidden;"-->

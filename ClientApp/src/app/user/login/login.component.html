@@ -1,0 +1,21 @@
+
+<form [formGroup]="loginForm" autocomplete="off" class="col-md-6" (submit)="onSubmit()" style="margin-left:20%; width: 60%; max-width: 100%;">
+
+
+  <div class="form-group">
+    <input formControlName="UserName" class="form-control" placeholder="Логин *" value="" />
+    <label class="text-danger" *ngIf = "loginForm.get('UserName').touched && loginForm.get('UserName').errors?.required">
+      Это поле обязательно для заполнения
+    </label>
+  </div>
+
+
+  <div class="form-group">
+    <input type="password" formControlName="Password" class="form-control" placeholder="Пароль *" value="" />
+    <label class="text-danger" *ngIf = "loginForm.get('Password').touched && loginForm.get('Password').errors?.required">
+      Это поле обязательно для заполнения
+    </label>
+  </div>
+
+  <input type="submit" class="btnRegister" [disabled]="!loginForm.valid"   value="Войти" style="width: 100%;"/>
+</form>
