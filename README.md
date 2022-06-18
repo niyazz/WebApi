@@ -16,6 +16,8 @@ For WebApi I used 🌐 ASP.NET Core  framework.
 
 At the front-size there was a 💐 Angular with TypeScript.
 
+HTML and CSS
+
 # Examples
 
 ![image](https://user-images.githubusercontent.com/33568437/131031280-044f90d4-593a-41fa-9835-1778f6e84659.png)
